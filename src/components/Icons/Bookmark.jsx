@@ -1,8 +1,13 @@
 import React from "react";
 
-const Bookmark = () => {
+const BookmarkIcon = (props) => {
   return (
-    <svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      viewBox="0 0 24 24"
+      fill="#fff"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
       <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
       <g
         id="SVGRepo_tracerCarrier"
@@ -16,4 +21,4 @@ const Bookmark = () => {
   );
 };
 
-export default Bookmark;
+export default BookmarkIcon;

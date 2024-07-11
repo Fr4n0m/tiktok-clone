@@ -1,4 +1,4 @@
-export const Heart = ({ fill = "currentColor" }) => (
+export const HeartIcon = ({ fill = "currentColor" }) => (
   <svg width="45" height="56" viewBox="8 8 40 40" fill="none">
     <path
       fillRule="evenodd"
@@ -8,3 +8,5 @@ export const Heart = ({ fill = "currentColor" }) => (
     />
   </svg>
 );
+
+export default HeartIcon;

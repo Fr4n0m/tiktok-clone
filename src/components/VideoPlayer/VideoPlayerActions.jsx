@@ -6,28 +6,54 @@ import ShareIcon from "../Icons/Share";
 import MusicIcon from "../Icons/MusicIcon";
 import BookmarkIcon from "../Icons/Bookmark";
 
-const VideoPlayerActions = () => {
+const VideoPlayerActions = ({
+  likes = 1242,
+  comments = 300,
+  bookmarks = 123,
+  shares = 103,
+  hearted = false,
+}) => {
+  const handleLike = () => {
+    window.alert("like");
+  };
+
+  const handleComment = () => {
+    window.alert("comment");
+  };
+
+  const handleShare = () => {
+    window.alert("share");
+  };
+
+  const handleBookmark = () => {
+    window.alert("bookmark");
+  };
+
   return (
     <aside className={styles.actions}>
-      <div className={styles.action}>
+      <button className={styles.action} onClick={handleLike}>
         <HeartIcon />
-      </div>
+        <span title="like">{likes}</span>
+      </button>
 
-      <div className={styles.action}>
+      <button className={styles.action} onClick={handleComment}>
         <CommentsIcon />
-      </div>
+        <span title="comments">{comments}</span>
+      </button>
 
-      <div className={styles.action}>
-        <ShareIcon />
-      </div>
-
-      <div className={styles.action}>
+      <button className={styles.action} onClick={handleBookmark}>
         <BookmarkIcon />
-      </div>
+        <span title="bookmarks">{bookmarks}</span>
+      </button>
 
-      <div className={styles.action}>
+      <button className={styles.action} onClick={handleShare}>
+        <ShareIcon />
+        <span title="shares">{shares}</span>
+      </button>
+
+      <button className={styles.action}>
         <MusicIcon />
-      </div>
+      </button>
     </aside>
   );
 };

@@ -5,13 +5,12 @@
 
 .wrapper {
     position: relative;
-
 }
 
 .player {
     width: 62px;
     height: 62px;
-    background-image: url(assets/player.png);
+    background-image: url(/assets/player.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
@@ -29,7 +28,7 @@
 .actions {
     position: absolute;
     bottom: 120px;
-    right: 16px;
+    right: 8px;
     z-index: 1;
 }
 
@@ -46,19 +45,4 @@
     font-size: small;
     background: transparent;
     border: none;
-}
-
-.album {
-    animation: rotate 3s infinite linear;
-}
-
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-
 }

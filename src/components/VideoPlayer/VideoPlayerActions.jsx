@@ -3,7 +3,6 @@ import styles from "./styles.module.css";
 import HeartIcon from "../Icons/Heart";
 import CommentsIcon from "../Icons/Comments";
 import ShareIcon from "../Icons/Share";
-import MusicIcon from "../Icons/MusicIcon";
 import BookmarkIcon from "../Icons/Bookmark";
 
 const VideoPlayerActions = ({
@@ -49,10 +48,6 @@ const VideoPlayerActions = ({
       <button className={styles.action} onClick={handleShare}>
         <ShareIcon />
         <span title="shares">{shares}</span>
-      </button>
-
-      <button className={styles.action}>
-        <MusicIcon />
       </button>
     </aside>
   );

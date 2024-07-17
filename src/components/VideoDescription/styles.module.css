@@ -1,16 +1,17 @@
 .album {
     animation: rotate 4s infinite linear;
     background: url('/assets/album.svg');
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-right: -8px;
 }
 
 .albumImage {
-    width: 29px;
-    height: 29px;
+    width: 25px;
+    height: 25px;
     border-radius: 100%;
     overflow: hidden;
     object-fit: cover;

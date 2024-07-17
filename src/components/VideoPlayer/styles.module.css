@@ -28,7 +28,7 @@
 
 .actions {
     position: absolute;
-    bottom: 60px;
+    bottom: 70px;
     right: 8px;
     z-index: 1;
 }
@@ -43,7 +43,7 @@
     font-size: small;
     height: 50px;
     justify-content: center;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     text-align: center;
     width: 50px;
 }

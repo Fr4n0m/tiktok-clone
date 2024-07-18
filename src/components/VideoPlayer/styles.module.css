@@ -47,3 +47,21 @@
     text-align: center;
     width: 50px;
 }
+
+.user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.user img:first-child {
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+}
+
+.user img:last-child {
+    margin-top: -15px;
+}

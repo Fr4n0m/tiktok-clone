@@ -1,29 +1,19 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import styles from "./styles.module.css";
 import clsx from "clsx";
 import VideoPlayerActions from "./VideoPlayerActions";
 import VideoDescription from "../VideoDescription/index";
+import useIntersectionVideoPlayer from "../../hooks/useIntersectionVideoPlayer.js";
 
-const VideoPlayer = ({
-  src,
-  username,
-  avatar,
-  albumCover,
-  description,
-  songTitle,
-}) => {
-  const [playing, setPlaying] = useState(false);
+const VideoPlayer = (props) => {
   const video = useRef(null);
-
-  const handlePlay = () => {
-    const { current: videoEl } = video;
-    playing ? video.current.pause() : video.current.play();
-    setPlaying(!playing);
-  };
+  const { playing, handlePlay } = useIntersectionVideoPlayer({ video });
 
   const playerClassname = clsx(styles.player, {
     [styles.hidden]: playing,
   });
+
+  const { src } = props;
 
   return (
     <div className={styles.wrapper}>
@@ -36,13 +26,8 @@ const VideoPlayer = ({
         src={src}
       />
       <i className={playerClassname} onClick={handlePlay} />
-      <VideoPlayerActions username={username} avatar={avatar} />
-      <VideoDescription
-        albumCover={albumCover}
-        username={username}
-        description={description}
-        songTitle={songTitle}
-      />
+      <VideoPlayerActions {...props} />
+      <VideoDescription {...props} />
     </div>
   );
 };

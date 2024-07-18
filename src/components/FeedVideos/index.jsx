@@ -10,6 +10,7 @@ const VIDEOS = [
   {
     id: 1,
     username: "fr4n0m",
+    avatar: "https://avatars.githubusercontent.com/u/138864214?v=4",
     description:
       "QUE VIVA ESPAÑA 🇪🇸 #españa #lamineyamal #eurocopa #euro2024 #fyp #parati",
     likes: 1079,
@@ -23,6 +24,7 @@ const VIDEOS = [
   {
     id: 2,
     username: "fr4n0m",
+    avatar: "https://avatars.githubusercontent.com/u/138864214?v=4",
     description:
       "Spain winning semifinals euro 24 🤌🏼⚽️🇪🇸🥹 #spain #champions #campeones #euro2024 #winners #football",
     likes: 1079,
@@ -52,10 +54,11 @@ export default function FeedVideos() {
   return videos.map((video) => {
     /*VIDEOS.map Para que se muestren los videos locales*/
     const { user = {} } = video;
+    const { avatar, username } = user;
 
     return (
       <div key={video.id} className={styles.item}>
-        <VideoPlayer {...video} username={user.username} />
+        <VideoPlayer {...video} username={username} avatar={avatar} />
         {/* {video.username} Para que aparezca el nombre de usuario en local*/}
       </div>
     );

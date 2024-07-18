@@ -3,14 +3,14 @@ import AlbumDisk from "./AlbumDisk";
 import SongTicker from "../SongTicker/index";
 import styles from "./styles.module.css";
 
-const VideoDescription = ({ author, description, albumCover, songTitle }) => {
+const VideoDescription = ({ username, description, albumCover, songTitle }) => {
   return (
     <footer className={styles.description}>
       <div className={styles.textWrapper}>
         <section>
           <strong>
-            <a href={`/user/${author}`} className={styles.author}>
-              @{author}
+            <a href={`/user/${username}`} className={styles.username}>
+              @{username}
             </a>
           </strong>
           <p className={styles.text}>{description}</p>

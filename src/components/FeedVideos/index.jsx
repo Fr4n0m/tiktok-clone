@@ -50,9 +50,13 @@ export default function FeedVideos() {
   }
 
   return videos.map((video) => {
+    /*VIDEOS.map Para que se muestren los videos locales*/
+    const { user = {} } = video;
+
     return (
       <div key={video.id} className={styles.item}>
-        <VideoPlayer {...video} />
+        <VideoPlayer {...video} username={user.username} />
+        {/* {video.username} Para que aparezca el nombre de usuario en local*/}
       </div>
     );
   });

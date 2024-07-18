@@ -6,6 +6,8 @@ import ShareIcon from "../Icons/Share";
 import BookmarkIcon from "../Icons/Bookmark";
 
 const VideoPlayerActions = ({
+  username,
+  avatar,
   likes = 1242,
   comments = 300,
   bookmarks = 123,
@@ -30,6 +32,14 @@ const VideoPlayerActions = ({
 
   return (
     <aside className={styles.actions}>
+      <div className={styles.user}>
+        <img alt={username} src={avatar} />
+        <img
+          src="https://sf16-scmcdn-va.ibytedtos.com/goofy/tiktok/web/node/_next/static/images/test-2e6dd40439e72f09a8193e27cb3e0c51.svg"
+          width="24"
+        />
+      </div>
+
       <button className={styles.action} onClick={handleLike}>
         <HeartIcon />
         <span title="like">{likes}</span>

@@ -1,7 +1,8 @@
+import React from "react";
 import "./App.css";
 import FeedVideos from "./components/FeedVideos/index.jsx";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <main>
@@ -9,6 +10,6 @@ function App() {
       </main>
     </div>
   );
-}
+};
 
 export default App;

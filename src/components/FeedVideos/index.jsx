@@ -4,8 +4,8 @@ import video from "../../../assets/descarga2.mp4";
 import video2 from "../../../assets/descarga3.mp4";
 import video3 from "../../../assets/descarga4.mp4";
 import styles from "./styles.module.css";
-import getVideos from "../../services/index.js";
-
+/* import getVideos from "../../services/index.js";
+ */
 const VIDEOS = [
   {
     id: 1,
@@ -51,15 +51,15 @@ const VIDEOS = [
 ];
 
 export default function FeedVideos() {
-  const [videos, setVideos] = useState([]);
-  const [error, setError] = useState(null);
+  /*   const [videos, setVideos] = useState([]);
+   */ const [error, setError] = useState(null);
 
-  useEffect(() => {
+  /* useEffect(() => {
     getVideos().then(([error, videos]) => {
       if (error) return setError(error);
       setVideos(videos);
     });
-  }, []);
+  }, []); */
 
   if (error) {
     return <span>{error}</span>;

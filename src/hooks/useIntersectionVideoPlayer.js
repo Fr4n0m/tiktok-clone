@@ -23,7 +23,7 @@ export default function useIntersectionVideoPlayer({ video }) {
     video.current._handleIntersect = (isIntersecting) => {
       const { current: videoEl } = video;
 
-      isIntersecting ? videoEl.play() : videoEl.pause();
+      isIntersecting ? videoEl.play() : videoEl?.pause();
 
       setPlaying(!videoEl.paused);
     };

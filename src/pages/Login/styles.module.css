@@ -1,0 +1,10 @@
+.login {
+    background: #fff;
+    padding: 14px;
+    height: 100%;
+}
+
+.login h1 {
+    font-size: 48px;
+    font-weight: 800;
+}

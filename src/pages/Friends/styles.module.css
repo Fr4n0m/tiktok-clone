@@ -1,0 +1,10 @@
+.friends {
+    background: #fff;
+    padding: 14px;
+    height: 100%;
+}
+
+.friends h1 {
+    font-size: 48px;
+    font-weight: 800;
+}

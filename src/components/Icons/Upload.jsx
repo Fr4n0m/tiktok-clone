@@ -6,8 +6,8 @@ const UploadIcon = (props) => {
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 75 49"
-      width="80"
-      height="80"
+      width="70"
+      height="70"
       {...props}
     >
       <path

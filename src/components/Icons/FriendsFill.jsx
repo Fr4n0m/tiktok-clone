@@ -3,9 +3,8 @@ import React from "react";
 const FriendsFillIcon = (props) => {
   return (
     <svg
-      width="32"
-      data-e2e=""
-      height="32"
+      width="30"
+      height="30"
       viewBox="0 0 48 48"
       fill="#fff"
       xmlns="http://www.w3.org/2000/svg"

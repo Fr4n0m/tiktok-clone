@@ -1,30 +1,119 @@
-# React + TypeScript + Vite
+# TikTok Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Clon basado en React de la aplicación TikTok.
 
-Currently, two official plugins are available:
+## Comenzando
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Ver en la web: https://tiktok-clone-five-phi.vercel.app/
 
-## Expanding the ESLint configuration
+### Requisitos previos
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Node.js (versión 14 o superior)
+- npm (versión 6 o superior)
 
-- Configure the top-level `parserOptions` property like this:
+### Instalación
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+1. Clonar el repositorio:
+
+   ```bash
+   git clone https://github.com/Fr4n0m/tiktok-clone.git
+   ```
+
+2. Instalar dependencias:
+
+   ```bash
+   npm install
+   ```
+
+3. Ejecutar el servidor de desarrollo:
+
+```bash
+npm run dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Tecnologías Utilizadas
+
+- React (versión 18)
+- React DOM (versión 18)
+- CSS
+
+## Contribuyendo
+
+¡Las contribuciones son bienvenidas! Si deseas contribuir a este proyecto, por favor haz un fork del repositorio y envía una pull request.
+
+## Licencia
+
+Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+
+## Agradecimientos
+
+Inspirado en la aplicación original de TikTok.
+
+## Problemas y Retroalimentación
+
+Si encuentras algún problema o tienes comentarios, por favor abre un issue en este repositorio.
+
+## Autor
+
+fr4n0m
+
+---
+
+# TikTok Clone
+
+A React-based clone of the popular social media app TikTok.
+
+## Getting Started
+
+Website: https://tiktok-clone-five-phi.vercel.app/
+
+### Prerequisites
+
+- Node.js (version 14 or higher)
+- npm (version 6 or higher)
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Fr4n0m/tiktok-clone.git
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+
+```bash
+npm run dev
+```
+
+## Technologies Used
+
+- React (version 18)
+- React DOM (version 18)
+- CSS
+
+## Contributing
+
+Contributions are welcome! If you'd like to contribute to this project, please fork the repository and submit a pull request.
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+
+## Acknowledgments
+
+Inspired by the original TikTok app.
+
+## Issues and Feedback
+
+If you encounter any issues or have feedback, please open an issue on this repository.
+
+## Author
+
+fr4n0m

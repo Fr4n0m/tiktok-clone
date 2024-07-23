@@ -56,7 +56,7 @@ Si encuentras algún problema o tienes comentarios, por favor abre un issue en e
 
 ## Autor
 
-fr4n0m
+[fr4n0m](https://github.com/Fr4n0m)
 
 ---
 
@@ -118,4 +118,4 @@ If you encounter any issues or have feedback, please open an issue on this repos
 
 ## Author
 
-fr4n0m
+[fr4n0m](https://github.com/Fr4n0m)

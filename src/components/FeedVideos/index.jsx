@@ -16,7 +16,7 @@ const VIDEOS = [
     likes: 1079,
     shares: 259,
     comments: 234,
-    songTitle: "Que viva España - Manolo Escobar",
+    songTitle: "sonido original - los40es",
     albumCover:
       "https://i.scdn.co/image/ab67616d0000b273c22909b499aaee92f566e0f5",
     src: video2,

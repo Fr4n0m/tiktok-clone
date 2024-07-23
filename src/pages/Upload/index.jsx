@@ -87,7 +87,7 @@ const Upload = () => {
         </div>
 
         <label>
-          leyenda
+          Leyenda
           <input name="description" placeholder="" />
         </label>
 

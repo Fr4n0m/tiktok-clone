@@ -16,6 +16,7 @@ const VIDEOS = [
     likes: 1079,
     shares: 259,
     comments: 234,
+    bookmarks: 123,
     songTitle: "sonido original - los40es",
     albumCover:
       "https://i.scdn.co/image/ab67616d0000b273c22909b499aaee92f566e0f5",
@@ -30,6 +31,7 @@ const VIDEOS = [
     likes: 2079,
     shares: 545,
     comments: 383,
+    bookmarks: 419,
     songTitle: "La Roja Baila - Himno Oficial",
     albumCover: "https://ichef.bbci.co.uk/images/ic/1024x576/p03yydym.jpg",
     src: video,
@@ -40,9 +42,10 @@ const VIDEOS = [
     avatar: "https://avatars.githubusercontent.com/u/138864214?v=4",
     description:
       "Alonso X Lobato 2023 Season #Alonso #Lobato #f1 #f1noticias #f1edit",
-    likes: 3333,
+    likes: 33333,
     shares: 333,
-    comments: 333,
+    comments: 3333,
+    bookmarks: 333,
     songTitle: "sonido original - Antonio Lobato",
     albumCover:
       "https://cdn.mobygames.com/ca057d3c-ac08-11ed-b950-02420a00012d.webp",

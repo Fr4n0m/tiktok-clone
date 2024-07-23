@@ -8,10 +8,10 @@ import BookmarkIcon from "../Icons/Bookmark";
 const VideoPlayerActions = ({
   username,
   avatar,
-  likes = 1242,
-  comments = 300,
-  bookmarks = 123,
-  shares = 103,
+  likes,
+  comments,
+  bookmarks,
+  shares,
   hearted = false,
 }) => {
   const handleLike = () => {

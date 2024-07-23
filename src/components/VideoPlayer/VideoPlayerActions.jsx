@@ -1,21 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./styles.module.css";
 import HeartIcon from "../Icons/Heart";
 import CommentsIcon from "../Icons/Comments";
 import ShareIcon from "../Icons/Share";
 import BookmarkIcon from "../Icons/Bookmark";
 
-const VideoPlayerActions = ({
-  username,
-  avatar,
-  likes,
-  comments,
-  bookmarks,
-  shares,
-  hearted = false,
-}) => {
+const VideoPlayerActions = (props) => {
+  const [hearted, setHearted] = useState(false);
+  const [likes, setLikes] = useState(props.likes);
+
   const handleLike = () => {
-    window.alert("like");
+    setHearted((prevHearted) => !prevHearted);
+    setLikes((prevLikes) => (hearted ? prevLikes - 1 : prevLikes + 1));
   };
 
   const handleComment = () => {
@@ -33,7 +29,7 @@ const VideoPlayerActions = ({
   return (
     <aside className={styles.actions}>
       <div className={styles.user}>
-        <img alt={username} src={avatar} />
+        <img alt={props.username} src={props.avatar} />
         <img
           src="https://sf16-scmcdn-va.ibytedtos.com/goofy/tiktok/web/node/_next/static/images/test-2e6dd40439e72f09a8193e27cb3e0c51.svg"
           width="24"
@@ -41,23 +37,23 @@ const VideoPlayerActions = ({
       </div>
 
       <button className={styles.action} onClick={handleLike}>
-        <HeartIcon />
+        <HeartIcon className={hearted ? styles.hearted : styles.notHearted} />
         <span title="like">{likes}</span>
       </button>
 
       <button className={styles.action} onClick={handleComment}>
         <CommentsIcon />
-        <span title="comments">{comments}</span>
+        <span title="comments">{props.comments}</span>
       </button>
 
       <button className={styles.action} onClick={handleBookmark}>
         <BookmarkIcon />
-        <span title="bookmarks">{bookmarks}</span>
+        <span title="bookmarks">{props.bookmarks}</span>
       </button>
 
       <button className={styles.action} onClick={handleShare}>
         <ShareIcon />
-        <span title="shares">{shares}</span>
+        <span title="shares">{props.shares}</span>
       </button>
     </aside>
   );

@@ -64,3 +64,11 @@
 .user img:last-child {
     margin-top: -15px;
 }
+
+.hearted {
+    fill: #ff2c54;
+}
+
+.notHearted {
+    fill: #fff;
+}

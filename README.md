@@ -37,6 +37,7 @@ Ver en la web: https://tiktok-clone-five-phi.vercel.app/
 - React DOM (versión 18)
 - CSS
 - Vite
+- Supabase
 
 ## Contribuciones
 
@@ -99,6 +100,7 @@ Website: https://tiktok-clone-five-phi.vercel.app/
 - React DOM (version 18)
 - CSS
 - Vite
+- Supabase
 
 ## Contributing
 

@@ -33,7 +33,7 @@ const NavBar = () => {
         title="Bandeja de entrada"
       >
         <InboxIcon />
-        <span>Bandeja de entrada</span>
+        <span className={styles.inboxTitle}>Bandeja de entrada</span>
       </a>
 
       <a className={styles.iconContainer} href="/profile" title="Perfil">

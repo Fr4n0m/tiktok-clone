@@ -20,7 +20,7 @@
 }
 
 .iconContainer span {
-    white-space: nowrap;
+    text-wrap: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     width: 100%;
@@ -33,4 +33,8 @@
     height: 22px;
     border-radius: 50%;
     margin: 5px;
+}
+
+.inboxTitle {
+    font-size: 8px;
 }

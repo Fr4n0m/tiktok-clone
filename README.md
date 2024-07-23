@@ -2,7 +2,7 @@
 
 Clon basado en React de la aplicación TikTok.
 
-## Comenzando
+## Comienza
 
 Ver en la web: https://tiktok-clone-five-phi.vercel.app/
 
@@ -27,17 +27,18 @@ Ver en la web: https://tiktok-clone-five-phi.vercel.app/
 
 3. Ejecutar el servidor de desarrollo:
 
-```bash
-npm run dev
-```
+   ```bash
+   npm run dev
+   ```
 
 ## Tecnologías Utilizadas
 
 - React (versión 18)
 - React DOM (versión 18)
 - CSS
+- Vite
 
-## Contribuyendo
+## Contribuciones
 
 ¡Las contribuciones son bienvenidas! Si deseas contribuir a este proyecto, por favor haz un fork del repositorio y envía una pull request.
 
@@ -88,15 +89,16 @@ Website: https://tiktok-clone-five-phi.vercel.app/
 
 3. Start the development server:
 
-```bash
-npm run dev
-```
+   ```bash
+   npm run dev
+   ```
 
 ## Technologies Used
 
 - React (version 18)
 - React DOM (version 18)
 - CSS
+- Vite
 
 ## Contributing
 

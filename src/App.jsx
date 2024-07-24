@@ -10,6 +10,8 @@ const Login = lazy(() => import("./pages/Login/index.jsx"));
 const Friends = lazy(() => import("./pages/Friends/index.jsx"));
 const Inbox = lazy(() => import("./pages/Inbox/index.jsx"));
 const Profile = lazy(() => import("./pages/Profile/index.jsx"));
+const Search = lazy(() => import("./pages/Search/index.jsx"));
+const Live = lazy(() => import("./pages/Live/index.jsx"));
 
 const App = () => {
   return (
@@ -38,6 +40,14 @@ const App = () => {
 
           <Route path="/profile">
             <Profile />
+          </Route>
+
+          <Route path="/search">
+            <Search />
+          </Route>
+
+          <Route path="/live">
+            <Live />
           </Route>
         </Suspense>
       </main>

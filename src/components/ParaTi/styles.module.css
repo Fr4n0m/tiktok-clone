@@ -1,0 +1,12 @@
+.paraTi {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+
+    a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        font-size: 15px;
+    }
+}

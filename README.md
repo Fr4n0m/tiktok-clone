@@ -39,6 +39,16 @@ Ver en la web: https://tiktok-clone-five-phi.vercel.app/
 - Vite
 - Supabase
 
+## Dependencias usadas
+
+- **@supabase/supabase-js**: `2.44.4`
+- **clsx**: `2.1.1`
+- **react**: `18.3.1`
+- **react-dom**: `18.3.1`
+- **react-dropzone**: `14.2.3`
+- **react-fast-marquee**: `1.6.5`
+- **wouter**: `3.3.1`
+
 ## Contribuciones
 
 ¡Las contribuciones son bienvenidas! Si deseas contribuir a este proyecto, por favor haz un fork del repositorio y envía una pull request.
@@ -101,6 +111,16 @@ Website: https://tiktok-clone-five-phi.vercel.app/
 - CSS
 - Vite
 - Supabase
+
+## Dependencies
+
+- **@supabase/supabase-js**: `2.44.4`
+- **clsx**: `2.1.1`
+- **react**: `18.3.1`
+- **react-dom**: `18.3.1`
+- **react-dropzone**: `14.2.3`
+- **react-fast-marquee**: `1.6.5`
+- **wouter**: `3.3.1`
 
 ## Contributing
 

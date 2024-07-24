@@ -1,6 +1,9 @@
+![tiktok_1](https://github.com/user-attachments/assets/414c6a16-fe03-4c96-ae89-604ba72dff4a)
+![tiktok_2](https://github.com/user-attachments/assets/623473e0-da7c-4ba5-b222-0daaa6104739)
+
 # TikTok Clone
 
-Clon basado en React de la aplicación TikTok.
+Clon basado en React de la interfaz de TikTok.
 
 ## Comienza
 

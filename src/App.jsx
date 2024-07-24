@@ -1,42 +1,45 @@
 import React from "react";
 import "./App.css";
+import { lazy, Suspense } from "react";
 import { Route } from "wouter";
 import NavBar from "./components/NavBar";
 
-import Home from "./pages/Home/index.jsx";
-import Upload from "./pages/Upload/index.jsx";
-import Login from "./pages/Login/index.jsx";
-import Friends from "./pages/Friends/index.jsx";
-import Inbox from "./pages/Inbox/index.jsx";
-import Profile from "./pages/Profile/index.jsx";
+const Home = lazy(() => import("./pages/Home/index.jsx"));
+const Upload = lazy(() => import("./pages/Upload/index.jsx"));
+const Login = lazy(() => import("./pages/Login/index.jsx"));
+const Friends = lazy(() => import("./pages/Login/index.jsx"));
+const Inbox = lazy(() => import("./pages/Inbox/index.jsx"));
+const Profile = lazy(() => import("./pages/Profile/index.jsx"));
 
 const App = () => {
   return (
     <div className="App">
       <main>
-        <Route path="/">
-          <Home />
-        </Route>
+        <Suspense fallback={<div />}>
+          <Route path="/">
+            <Home />
+          </Route>
 
-        <Route path="/upload">
-          <Upload />
-        </Route>
+          <Route path="/upload">
+            <Upload />
+          </Route>
 
-        <Route path="/login">
-          <Login />
-        </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
 
-        <Route path="/friends">
-          <Friends />
-        </Route>
+          <Route path="/friends">
+            <Friends />
+          </Route>
 
-        <Route path="/inbox">
-          <Inbox />
-        </Route>
+          <Route path="/inbox">
+            <Inbox />
+          </Route>
 
-        <Route path="/profile">
-          <Profile />
-        </Route>
+          <Route path="/profile">
+            <Profile />
+          </Route>
+        </Suspense>
       </main>
       <NavBar />
     </div>

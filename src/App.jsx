@@ -12,6 +12,7 @@ const Inbox = lazy(() => import("./pages/Inbox/index.jsx"));
 const Profile = lazy(() => import("./pages/Profile/index.jsx"));
 const Search = lazy(() => import("./pages/Search/index.jsx"));
 const Live = lazy(() => import("./pages/Live/index.jsx"));
+const FollowVideoFeed = lazy(() => import("./pages/FollowVideoFeed/index.jsx"));
 
 const App = () => {
   return (
@@ -48,6 +49,10 @@ const App = () => {
 
           <Route path="/live">
             <Live />
+          </Route>
+
+          <Route path="/followVideoFeed">
+            <FollowVideoFeed />
           </Route>
         </Suspense>
       </main>

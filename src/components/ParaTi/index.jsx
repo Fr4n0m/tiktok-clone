@@ -4,8 +4,8 @@ import styles from "./styles.module.css";
 const ParaTi = () => {
   return (
     <div className={styles.paraTi}>
-      <a href="">Siguiendo</a>
-      <a href="">Para ti</a>
+      <a href="/followVideoFeed">Siguiendo</a>
+      <a href="/">Para ti</a>
     </div>
   );
 };

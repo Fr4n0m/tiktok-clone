@@ -6,7 +6,24 @@
     a {
         text-decoration: none;
         color: #fff;
-        font-weight: bold;
+        font-weight: 900;
         font-size: 15px;
     }
+}
+
+.paraTi :nth-child(1) {
+    color: #ffffffd2;
+}
+
+.paraTi a::after {
+    content: "";
+    position: absolute;
+    margin-top: 28px;
+    margin-left: 224px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    width: 20px;
+    background-color: #fff;
+    border-radius: 20%;
 }

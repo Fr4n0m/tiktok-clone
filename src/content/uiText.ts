@@ -18,11 +18,16 @@ export const UI_TEXT = {
   },
   upload: {
     title: "Upload video",
-    subtitle: "This video will be published on @fr4n0m profile",
+    subtitle: "Create a new post using mock upload flow",
+    mockNotice:
+      "Privacy notice: this demo stores uploads locally in your browser only. Data is not sent to external servers.",
     caption: "Caption",
+    descriptionPlaceholder: "Describe your video",
     submit: "Publish",
     publishing: "Publishing...",
     uploadedSuccess: "File uploaded successfully",
+    readyToPublish: "Ready to publish",
+    selectedFile: "Selected file",
     uploading: "Uploading file...",
     unsupportedFile: "Unsupported file",
     dropToUpload: "Drop file to upload",

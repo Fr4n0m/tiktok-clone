@@ -4,21 +4,31 @@ import { Accept, useDropzone } from "react-dropzone";
 import clsx from "clsx";
 import { publishVideo, uploadVideo } from "../../services";
 import { UI_TEXT } from "../../content/uiText";
+import UploadIcon from "../../components/Icons/Upload";
 
 const Upload = () => {
   const [uploading, setUploading] = useState(false);
   const [uploaded, setUploaded] = useState<string | null>(null);
+  const [selectedFileName, setSelectedFileName] = useState("");
   const [isPublishing, setIsPublishing] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [publishedMessage, setPublishedMessage] = useState("");
+
+  const releaseUploadedUrl = (url: string | null) => {
+    if (url?.startsWith("blob:")) {
+      URL.revokeObjectURL(url);
+    }
+  };
 
   const onDrop = async (files: File[]) => {
     const [file] = files;
     if (!file) return;
 
+    releaseUploadedUrl(uploaded);
     setUploading(true);
     setErrorMessage("");
     setPublishedMessage("");
+    setSelectedFileName(file.name);
 
     const [error, fileUrl] = await uploadVideo({ videoFile: file });
     setUploading(false);
@@ -47,6 +57,10 @@ const Upload = () => {
     }
   }, [isDragReject]);
 
+  useEffect(() => {
+    return () => releaseUploadedUrl(uploaded);
+  }, [uploaded]);
+
   const dndClassNames = clsx(styles.dnd, {
     [styles.uploaded]: uploaded,
     [styles.uploading]: uploading && !uploaded,
@@ -56,7 +70,12 @@ const Upload = () => {
 
   const renderDndContent = () => {
     if (uploaded) {
-      return <h4>{UI_TEXT.upload.uploadedSuccess}</h4>;
+      return (
+        <>
+          <h4>{UI_TEXT.upload.uploadedSuccess}</h4>
+          <h5>{UI_TEXT.upload.readyToPublish}</h5>
+        </>
+      );
     }
     if (uploading) {
       return <h4>{UI_TEXT.upload.uploading}</h4>;
@@ -96,7 +115,9 @@ const Upload = () => {
     }
 
     setPublishedMessage(UI_TEXT.upload.publishSuccess);
+    releaseUploadedUrl(uploaded);
     setUploaded(null);
+    setSelectedFileName("");
     form.reset();
   };
 
@@ -104,31 +125,36 @@ const Upload = () => {
     <div className={styles.upload}>
       <h1>{UI_TEXT.upload.title}</h1>
       <p>{UI_TEXT.upload.subtitle}</p>
+      <small className={styles.notice}>{UI_TEXT.upload.mockNotice}</small>
 
       <form className={styles.form} onSubmit={handleSubmit}>
-        <div {...getRootProps()}>
+        <div {...getRootProps()} className={styles.dropzoneRoot}>
           <input {...getInputProps()} />
           <div className={dndClassNames}>
-            <img
-              src="https://sf16-scmcdn-va.ibytedtos.com/goofy/tiktok/web/node/_next/static/images/cloud_icon-6e07be44878e69ee3f7bff3b78405b76.svg"
-              width="49"
-              alt={UI_TEXT.upload.cloudIconAlt}
-            />
+            <UploadIcon aria-hidden />
             {renderDndContent()}
           </div>
         </div>
 
-        <label>
-          {UI_TEXT.upload.caption}
-          <input name="description" placeholder="" />
-        </label>
+        <div className={styles.formFooter}>
+          {selectedFileName ? (
+            <p className={styles.fileName}>
+              {UI_TEXT.upload.selectedFile}: <strong>{selectedFileName}</strong>
+            </p>
+          ) : null}
 
-        <button disabled={!uploaded || isPublishing} type="submit">
-          {isPublishing ? UI_TEXT.upload.publishing : UI_TEXT.upload.submit}
-        </button>
+          <label>
+            {UI_TEXT.upload.caption}
+            <input name="description" placeholder={UI_TEXT.upload.descriptionPlaceholder} />
+          </label>
 
-        {errorMessage ? <p>{errorMessage}</p> : null}
-        {publishedMessage ? <p>{publishedMessage}</p> : null}
+          <button disabled={!uploaded || isPublishing} type="submit">
+            {isPublishing ? UI_TEXT.upload.publishing : UI_TEXT.upload.submit}
+          </button>
+
+          {errorMessage ? <p className={styles.error}>{errorMessage}</p> : null}
+          {publishedMessage ? <p className={styles.success}>{publishedMessage}</p> : null}
+        </div>
       </form>
     </div>
   );

@@ -84,10 +84,11 @@
     border-radius: 999px;
     color: #fff;
     cursor: pointer;
-    display: inline-grid;
+    display: inline-flex;
     font-weight: 700;
     height: 22px;
-    place-items: center;
+    justify-content: center;
+    padding: 0;
     left: 50%;
     position: absolute;
     top: 28px;
@@ -96,23 +97,23 @@
 }
 
 .followBadgeIcon {
-    display: grid;
-    height: 100%;
-    line-height: 1;
-    place-items: center;
-    width: 100%;
+    display: block;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    width: 74%;
+    height: 74%;
 }
 
 .plusIcon {
-    font-size: 20px;
-    font-weight: 200;
-    transform: translate(-1px, 1px);
+    stroke-width: 2.8;
+    transform: translate(-0.5px, 0.5px);
 }
 
 .checkIcon {
-    font-size: 12px;
-    font-weight: 800;
-    transform: translateY(0);
+    stroke-width: 3;
+    transform: translateY(-0.5px);
 }
 
 .hearted {

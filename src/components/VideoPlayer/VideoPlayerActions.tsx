@@ -124,15 +124,25 @@ const VideoPlayerActions = (props: VideoPlayerActionsProps) => {
               }}
               type="button"
             >
-              <span
-                className={
-                  following
-                    ? `${styles.followBadgeIcon} ${styles.checkIcon}`
-                    : `${styles.followBadgeIcon} ${styles.plusIcon}`
-                }
-              >
-                {following ? "✓" : "+"}
-              </span>
+              {following ? (
+                <svg
+                  aria-hidden="true"
+                  className={`${styles.followBadgeIcon} ${styles.checkIcon}`}
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M5 13l4 4L19 7" />
+                </svg>
+              ) : (
+                <svg
+                  aria-hidden="true"
+                  className={`${styles.followBadgeIcon} ${styles.plusIcon}`}
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 5v14M5 12h14" />
+                </svg>
+              )}
             </button>
           </div>
         </button>

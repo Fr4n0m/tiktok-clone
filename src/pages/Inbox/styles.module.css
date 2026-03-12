@@ -1,10 +1,102 @@
 .inbox {
-    background: #fff;
-    padding: 14px;
-    height: 100%;
+    background: #101010;
+    color: #fff;
+    min-height: 100%;
+    padding: 16px 14px 76px;
 }
 
-.inbox h1 {
-    font-size: 48px;
-    font-weight: 800;
+.header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 30px;
+}
+
+.header button {
+    background: transparent;
+    border: 1px solid #ffffff3a;
+    border-radius: 999px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 6px 10px;
+}
+
+.filters {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.filters button {
+    background: #ffffff10;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    color: #d8d8d8;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 8px 12px;
+}
+
+.filters .active {
+    background: #fff;
+    color: #000;
+}
+
+.notifications {
+    display: grid;
+    gap: 10px;
+}
+
+.notification {
+    align-items: center;
+    background: #ffffff0d;
+    border: 1px solid #ffffff14;
+    border-radius: 12px;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 40px 1fr auto;
+    padding: 10px;
+}
+
+.avatar {
+    border-radius: 999px;
+    height: 40px;
+    width: 40px;
+}
+
+.body strong {
+    display: block;
+    font-size: 13px;
+}
+
+.body p {
+    color: #b8b8b8;
+    font-size: 12px;
+    margin: 4px 0 0;
+}
+
+.meta {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.meta span {
+    color: #a8a8a8;
+    font-size: 11px;
+}
+
+.meta i {
+    background: #ff2c54;
+    border-radius: 999px;
+    display: inline-block;
+    height: 8px;
+    width: 8px;
 }

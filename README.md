@@ -27,6 +27,29 @@ https://tiktok-clone-five-phi.vercel.app/
 - Wouter
 - Supabase (`@supabase/supabase-js`)
 
+### ✨ Funcionalidades principales
+- Feed vertical con autoplay por intersección (scroll-snap estilo móvil).
+- Tabs `Following` y `For You` con indicador activo y transición lateral animada.
+- Acciones de vídeo mockeadas:
+  - Like y bookmark con toggle visual y contador `+1 / -1`.
+  - Panel de comentarios con entrada animada y datos mock.
+  - Panel de share con acciones visuales mock.
+  - Botón de usuario que navega al perfil.
+- Páginas sociales completas con datos mock:
+  - Friends
+  - Inbox
+  - Profile (incluye `Recent videos` con proyectos del portfolio).
+- Upload mock funcional:
+  - Selección por drag & drop.
+  - Publicación en el feed.
+  - Persistencia en `localStorage` (sin backend real).
+  - Aviso de privacidad: los datos no salen del navegador.
+
+### 🧠 Arquitectura de datos
+- `mock` por defecto para demo y entorno local.
+- `supabase` disponible para integración real cuando se habilite.
+- Servicios desacoplados por fuente de datos en `src/services/videos`.
+
 ### ⚙️ Requisitos
 - Node.js 18 o superior
 - npm 9 o superior
@@ -47,6 +70,13 @@ npm run preview
 npm run lint
 npm run test
 ```
+
+### 🔧 Variables de entorno
+`VITE_DATA_SOURCE=mock` (default) o `VITE_DATA_SOURCE=supabase`
+
+Si se activa Supabase:
+`VITE_SUPABASE_URL=...`
+`VITE_SUPABASE_KEY=...`
 
 ### 🤝 Contribuciones
 ¿Quieres mejorar el proyecto? Las PRs son muy bienvenidas.
@@ -80,6 +110,29 @@ https://tiktok-clone-five-phi.vercel.app/
 - Wouter
 - Supabase (`@supabase/supabase-js`)
 
+### ✨ Key Features
+- Vertical mobile-style feed with intersection-based autoplay (scroll-snap).
+- `Following` and `For You` tabs with active indicator and directional slide transitions.
+- Mocked video actions:
+  - Like and bookmark visual toggles with `+1 / -1` counters.
+  - Comments sheet with animated entrance and mock content.
+  - Share sheet with visual-only mock actions.
+  - User action button routing to profile.
+- Fully mocked social pages:
+  - Friends
+  - Inbox
+  - Profile (including `Recent videos` using portfolio project covers).
+- Functional mock upload flow:
+  - Drag & drop upload area.
+  - Publish to feed.
+  - `localStorage` persistence (no real backend required).
+  - Privacy notice: data stays in the browser.
+
+### 🧠 Data Architecture
+- `mock` is the default source for demo and local development.
+- `supabase` is supported for real backend integration.
+- Data-source-driven services are split under `src/services/videos`.
+
 ### ⚙️ Requirements
 - Node.js 18+
 - npm 9+
@@ -100,6 +153,13 @@ npm run preview
 npm run lint
 npm run test
 ```
+
+### 🔧 Environment Variables
+`VITE_DATA_SOURCE=mock` (default) or `VITE_DATA_SOURCE=supabase`
+
+When using Supabase:
+`VITE_SUPABASE_URL=...`
+`VITE_SUPABASE_KEY=...`
 
 ### 🤝 Contributing
 Want to improve the project? PRs are strongly encouraged.

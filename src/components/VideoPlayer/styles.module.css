@@ -74,3 +74,13 @@
 .notHearted {
     fill: #fff;
 }
+
+@media (max-width: 768px) {
+    .video {
+        object-fit: cover;
+    }
+
+    .actions {
+        bottom: calc(70px + env(safe-area-inset-bottom));
+    }
+}

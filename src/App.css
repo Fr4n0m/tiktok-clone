@@ -132,7 +132,7 @@ main::-webkit-scrollbar {
   }
 
   main {
-    height: calc(100dvh - var(--nav-height));
+    height: calc(100dvh - var(--nav-height) - env(safe-area-inset-bottom));
   }
 
   .appDisclaimer {

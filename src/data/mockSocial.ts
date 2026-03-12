@@ -7,6 +7,10 @@ import {
   ProfileVideo,
 } from "../types/social";
 import { UI_TEXT } from "../content/uiText";
+import devcrateCover from "../assets/projects/devcrate-1.webp";
+import gmMicrocementosCover from "../assets/projects/gm-microcementos-2.webp";
+import paint95Cover from "../assets/projects/paint-95-2.webp";
+import cejCover from "../assets/projects/cej-10.webp";
 
 export const MOCK_FRIEND_SUGGESTIONS: FriendSuggestion[] = [
   {
@@ -108,26 +112,22 @@ export const MOCK_PROFILE_ANALYTICS: ProfileAnalytics = {
 export const MOCK_PROFILE_VIDEOS: ProfileVideo[] = [
   {
     id: "video-1",
-    cover:
-      "https://images.unsplash.com/photo-1514508764508-bdd83a2f8f1f?auto=format&fit=crop&w=600&q=80",
+    cover: devcrateCover,
     views: "12.4K",
   },
   {
     id: "video-2",
-    cover:
-      "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=600&q=80",
+    cover: gmMicrocementosCover,
     views: "8.1K",
   },
   {
     id: "video-3",
-    cover:
-      "https://images.unsplash.com/photo-1529078155058-5d716f45d604?auto=format&fit=crop&w=600&q=80",
+    cover: paint95Cover,
     views: "4.9K",
   },
   {
     id: "video-4",
-    cover:
-      "https://images.unsplash.com/photo-1460881680858-30d872d5b530?auto=format&fit=crop&w=600&q=80",
+    cover: cejCover,
     views: "16.8K",
   },
 ];

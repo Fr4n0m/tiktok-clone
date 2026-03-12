@@ -1,10 +1,91 @@
 .friends {
-    background: #fff;
-    padding: 14px;
-    height: 100%;
+    background: linear-gradient(180deg, #111 0%, #1d1d1d 100%);
+    color: #fff;
+    min-height: 100%;
+    padding: 18px 14px 76px;
 }
 
-.friends h1 {
-    font-size: 48px;
-    font-weight: 800;
+.header h1 {
+    font-size: 30px;
+    margin: 0 0 4px;
+}
+
+.header p {
+    color: #bbbbbb;
+    margin: 0 0 16px;
+}
+
+.suggestionList {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.card {
+    align-items: center;
+    background: #ffffff0f;
+    border: 1px solid #ffffff18;
+    border-radius: 14px;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+}
+
+.avatar {
+    border-radius: 999px;
+    height: 44px;
+    object-fit: cover;
+    width: 44px;
+}
+
+.cardBody {
+    display: grid;
+    flex: 1;
+}
+
+.cardBody span,
+.cardBody small {
+    color: #cccccc;
+    font-size: 12px;
+}
+
+.card button {
+    background: #ff2c54;
+    border: none;
+    border-radius: 999px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 700;
+    padding: 8px 14px;
+}
+
+.friends h2 {
+    font-size: 16px;
+    margin: 0 0 10px;
+}
+
+.activityList {
+    display: grid;
+    gap: 10px;
+}
+
+.activity {
+    align-items: center;
+    background: #00000035;
+    border-radius: 12px;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 44px 1fr auto;
+    height: 100%;
+    padding: 10px;
+}
+
+.activity p {
+    font-size: 14px;
+    margin: 0;
+}
+
+.activity span {
+    color: #aaaaaa;
+    font-size: 12px;
 }

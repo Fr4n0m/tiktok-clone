@@ -3,29 +3,43 @@
     flex-direction: row;
     gap: 15px;
     position: relative;
+    padding-bottom: 8px;
+
+    &::after {
+        content: "";
+        background-color: #fff;
+        border-radius: 99px;
+        bottom: 0;
+        height: 2px;
+        left: 0;
+        position: absolute;
+        transition: transform 0.25s ease;
+        width: 20px;
+    }
 
     a {
         color: #ffffffb8;
-        font-size: 18px;
+        display: inline-flex;
+        font-size: 16px;
         font-weight: 900;
+        justify-content: center;
         line-height: 1;
         position: relative;
         text-decoration: none;
+        transition: color 0.2s ease, opacity 0.2s ease;
+        width: 84px;
     }
+}
+
+.paraTi[data-active-tab="following"]::after {
+    transform: translateX(32px);
+}
+
+.paraTi[data-active-tab="forYou"]::after {
+    transform: translateX(131px);
 }
 
 .active {
     color: #fff !important;
-}
-
-.active::after {
-    content: "";
-    background-color: #fff;
-    border-radius: 20%;
-    bottom: -8px;
-    height: 2px;
-    left: 50%;
-    position: absolute;
-    transform: translateX(-50%);
-    width: 20px;
+    opacity: 1;
 }

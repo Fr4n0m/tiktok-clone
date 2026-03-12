@@ -1,10 +1,4 @@
 .followVideoFeed {
-    background: #fff;
-    padding: 14px;
+    background: #000;
     height: 100%;
-}
-
-.followVideoFeed h1 {
-    font-size: 48px;
-    font-weight: 800;
 }

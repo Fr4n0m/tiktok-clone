@@ -3,144 +3,119 @@
 
 # TikTok Clone
 
-Clon basado en React de la interfaz de TikTok.
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-Configured-3ECF8E?logo=supabase&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-## Comienza
+**Quick Navigation:** [Español](#-español) | [English](#-english)
 
-Ver en la web: https://tiktok-clone-five-phi.vercel.app/
+## 🇪🇸 Español
 
-### Requisitos previos
+### 📱 Descripción
+Clon de TikTok construido con React + Vite, orientado a una demo visual con datos mockeados.
+La integración de Supabase está preparada en código, pero la demo pública está desacoplada de conexión real.
 
-- Node.js (versión 14 o superior)
-- npm (versión 6 o superior)
+### 🚀 Demo
+https://tiktok-clone-five-phi.vercel.app/
 
-### Instalación
+### 🧩 Tecnologías
+- React 18
+- TypeScript 5
+- Vite 5
+- Wouter
+- Supabase (`@supabase/supabase-js`)
 
-1. Clonar el repositorio:
+### ⚙️ Requisitos
+- Node.js 18 o superior
+- npm 9 o superior
 
-   ```bash
-   git clone https://github.com/Fr4n0m/tiktok-clone.git
-   ```
+### 🛠️ Instalación y ejecución
+```bash
+git clone https://github.com/Fr4n0m/tiktok-clone.git
+cd tiktok-clone
+npm install
+npm run dev
+```
 
-2. Instalar dependencias:
+### 📦 Scripts
+```bash
+npm run dev
+npm run build
+npm run preview
+npm run lint
+npm run test
+```
 
-   ```bash
-   npm install
-   ```
+### 🤝 Contribuciones
+¿Quieres mejorar el proyecto? Las PRs son muy bienvenidas.
 
-3. Ejecutar el servidor de desarrollo:
+1. Haz fork del repositorio.
+2. Crea una rama de feature/fix.
+3. Realiza cambios pequeños y atómicos.
+4. Abre una Pull Request con contexto claro y capturas si aplica.
 
-   ```bash
-   npm run dev
-   ```
+También puedes revisar PRs abiertas aquí:
+https://github.com/Fr4n0m/tiktok-clone/pulls
 
-## Tecnologías Utilizadas
-
-- React (versión 18)
-- React DOM (versión 18)
-- CSS
-- Vite
-- Supabase
-
-## Dependencias usadas
-
-- **@supabase/supabase-js**: `2.44.4`
-- **clsx**: `2.1.1`
-- **react**: `18.3.1`
-- **react-dom**: `18.3.1`
-- **react-dropzone**: `14.2.3`
-- **react-fast-marquee**: `1.6.5`
-- **wouter**: `3.3.1`
-
-## Contribuciones
-
-¡Las contribuciones son bienvenidas! Si deseas contribuir a este proyecto, por favor haz un fork del repositorio y envía una pull request.
-
-## Licencia
-
-Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
-
-## Agradecimientos
-
-Inspirado en la aplicación original de TikTok.
-
-## Problemas y Retroalimentación
-
-Si encuentras algún problema o tienes comentarios, por favor abre un issue en este repositorio.
-
-## Autor
-
-[fr4n0m](https://github.com/Fr4n0m)
+### 📄 Licencia
+Este proyecto está bajo licencia MIT. Consulta [LICENSE](LICENSE).
 
 ---
 
-# TikTok Clone
+## 🇬🇧 English
 
-A React-based clone of the popular social media app TikTok.
+### 📱 Overview
+A TikTok-style clone built with React + Vite, focused on a visual demo using mocked data.
+Supabase integration is configured in code, while the public demo runs without a live backend connection.
 
-## Getting Started
+### 🚀 Live Demo
+https://tiktok-clone-five-phi.vercel.app/
 
-Website: https://tiktok-clone-five-phi.vercel.app/
+### 🧩 Tech Stack
+- React 18
+- TypeScript 5
+- Vite 5
+- Wouter
+- Supabase (`@supabase/supabase-js`)
 
-### Prerequisites
+### ⚙️ Requirements
+- Node.js 18+
+- npm 9+
 
-- Node.js (version 14 or higher)
-- npm (version 6 or higher)
+### 🛠️ Install and run
+```bash
+git clone https://github.com/Fr4n0m/tiktok-clone.git
+cd tiktok-clone
+npm install
+npm run dev
+```
 
-### Installation
+### 📦 Scripts
+```bash
+npm run dev
+npm run build
+npm run preview
+npm run lint
+npm run test
+```
 
-1. Clone the repository:
+### 🤝 Contributing
+Want to improve the project? PRs are strongly encouraged.
 
-   ```bash
-   git clone https://github.com/Fr4n0m/tiktok-clone.git
-   ```
+1. Fork the repository.
+2. Create a feature/fix branch.
+3. Keep changes focused and atomic.
+4. Open a Pull Request with clear context and screenshots when relevant.
 
-2. Install dependencies:
+Open PRs are available at:
+https://github.com/Fr4n0m/tiktok-clone/pulls
 
-   ```bash
-   npm install
-   ```
+### 📄 License
+This project is licensed under MIT. See [LICENSE](LICENSE).
 
-3. Start the development server:
+---
 
-   ```bash
-   npm run dev
-   ```
-
-## Technologies Used
-
-- React (version 18)
-- React DOM (version 18)
-- CSS
-- Vite
-- Supabase
-
-## Dependencies
-
-- **@supabase/supabase-js**: `2.44.4`
-- **clsx**: `2.1.1`
-- **react**: `18.3.1`
-- **react-dom**: `18.3.1`
-- **react-dropzone**: `14.2.3`
-- **react-fast-marquee**: `1.6.5`
-- **wouter**: `3.3.1`
-
-## Contributing
-
-Contributions are welcome! If you'd like to contribute to this project, please fork the repository and submit a pull request.
-
-## License
-
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
-
-## Acknowledgments
-
-Inspired by the original TikTok app.
-
-## Issues and Feedback
-
-If you encounter any issues or have feedback, please open an issue on this repository.
-
-## Author
-
-[fr4n0m](https://github.com/Fr4n0m)
+### 👨‍💻 Portfolio
+Fr4n0m: https://codebyfran.es

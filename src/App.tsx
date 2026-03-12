@@ -28,16 +28,44 @@ const ROUTES = [
 const App = () => {
   return (
     <div className="App">
-      <main>
-        <Suspense fallback={<div className="route-fallback" />}>
-          {ROUTES.map(({ path, Component }) => (
-            <Route key={path} path={path}>
-              <Component />
-            </Route>
-          ))}
-        </Suspense>
-      </main>
-      <NavBar />
+      <div className="deviceShell">
+        <main>
+          <Suspense fallback={<div className="route-fallback" />}>
+            {ROUTES.map(({ path, Component }) => (
+              <Route key={path} path={path}>
+                <Component />
+              </Route>
+            ))}
+          </Suspense>
+        </main>
+        <NavBar />
+      </div>
+
+      <aside className="appDisclaimer">
+        <p>Open-source demo project.</p>
+        <p>
+          Repository:{" "}
+          <a href="https://github.com/Fr4n0m/tiktok-clone" rel="noreferrer" target="_blank">
+            github.com/Fr4n0m/tiktok-clone
+          </a>
+        </p>
+        <p>
+          Open PRs:{" "}
+          <a
+            href="https://github.com/Fr4n0m/tiktok-clone/pulls?q=is%3Aopen+is%3Apr"
+            rel="noreferrer"
+            target="_blank"
+          >
+            github.com/Fr4n0m/tiktok-clone/pulls
+          </a>
+        </p>
+        <p>
+          Author:{" "}
+          <a href="https://codebyfran.es" rel="noreferrer" target="_blank">
+            codebyfran.es
+          </a>
+        </p>
+      </aside>
     </div>
   );
 };

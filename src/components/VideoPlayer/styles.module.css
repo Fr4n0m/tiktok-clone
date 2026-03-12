@@ -75,6 +75,58 @@
     fill: #fff;
 }
 
+.shareOverlay {
+    align-items: flex-end;
+    background: #00000078;
+    display: flex;
+    inset: 0;
+    position: absolute;
+    z-index: 3;
+}
+
+.shareMenu {
+    background: #181818;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    padding: 16px 14px 12px;
+    width: 100%;
+}
+
+.shareMenu h3 {
+    color: #fff;
+    font-size: 15px;
+    margin: 0 0 12px;
+    text-align: center;
+}
+
+.shareButtons {
+    display: grid;
+    gap: 8px;
+}
+
+.shareButtons button,
+.cancelShare {
+    background: #ffffff12;
+    border: 1px solid #ffffff1f;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.shareMenu p {
+    color: #9fe7a8;
+    font-size: 12px;
+    margin: 10px 0 8px;
+    text-align: center;
+}
+
+.cancelShare {
+    margin-top: 6px;
+    width: 100%;
+}
+
 @media (max-width: 768px) {
     .video {
         object-fit: cover;

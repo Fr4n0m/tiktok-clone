@@ -44,6 +44,13 @@ export const UI_TEXT = {
     bookmarks: "bookmarks",
     shares: "shares",
     pendingFeature: "Feature in progress",
+    shareMenuTitle: "Share to",
+    copyLink: "Copy link",
+    systemShare: "System share",
+    sendToFriend: "Send to a friend",
+    repost: "Repost",
+    cancel: "Cancel",
+    linkCopied: "Video link copied",
   },
   friendsPage: {
     title: "Friends",

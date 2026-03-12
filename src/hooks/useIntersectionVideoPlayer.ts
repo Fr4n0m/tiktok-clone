@@ -10,10 +10,16 @@ export default function useIntersectionVideoPlayer({ video }) {
       return;
     }
 
+    const rootElement = videoElement.closest("main");
+    const visibilityThreshold = 0.6;
+
     const observer = new window.IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
+          const isVisibleEnough =
+            entry.isIntersecting && entry.intersectionRatio >= visibilityThreshold;
+
+          if (isVisibleEnough) {
             void videoElement.play().catch(() => {});
           } else {
             videoElement.pause();
@@ -22,9 +28,9 @@ export default function useIntersectionVideoPlayer({ video }) {
         });
       },
       {
-        root: document.querySelector("main"),
+        root: rootElement,
         rootMargin: "0px",
-        threshold: 0.9,
+        threshold: [0, visibilityThreshold, 1],
       }
     );
 

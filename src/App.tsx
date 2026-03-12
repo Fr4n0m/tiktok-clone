@@ -42,29 +42,25 @@ const App = () => {
       </div>
 
       <aside className="appDisclaimer">
-        <p>Open-source demo project.</p>
-        <p>
-          Repository:{" "}
-          <a href="https://github.com/Fr4n0m/tiktok-clone" rel="noreferrer" target="_blank">
-            github.com/Fr4n0m/tiktok-clone
-          </a>
-        </p>
-        <p>
-          Open PRs:{" "}
-          <a
-            href="https://github.com/Fr4n0m/tiktok-clone/pulls?q=is%3Aopen+is%3Apr"
-            rel="noreferrer"
-            target="_blank"
-          >
-            github.com/Fr4n0m/tiktok-clone/pulls
-          </a>
-        </p>
-        <p>
-          Author:{" "}
-          <a href="https://codebyfran.es" rel="noreferrer" target="_blank">
-            codebyfran.es
-          </a>
-        </p>
+        <small>Open-source showcase</small>
+        <a
+          className="disclaimerItem isLink"
+          href="https://github.com/Fr4n0m/tiktok-clone"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <span>Repository</span>
+          <em>Open PRs available in the repository pull requests tab.</em>
+        </a>
+        <a
+          className="disclaimerItem isLink"
+          href="https://codebyfran.es"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <span>Author</span>
+          <strong>codebyfran.es</strong>
+        </a>
       </aside>
     </div>
   );

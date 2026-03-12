@@ -1,23 +1,23 @@
 import React from "react";
+import { Link } from "wouter";
 import styles from "./styles.module.css";
 import SearchIcon from "../Icons/Search";
 import LiveIcon from "../Icons/Live";
 import ParaTi from "../ParaTi";
+import { UI_TEXT } from "../../content/uiText";
 
 const Header = () => {
   return (
     <header className={styles.header}>
-      <a href="/live">
+      <Link aria-label={UI_TEXT.header.live} href="/live">
         <LiveIcon />
-      </a>
+      </Link>
 
-      <a href="/">
-        <ParaTi />
-      </a>
+      <ParaTi />
 
-      <a href="/search">
+      <Link aria-label={UI_TEXT.header.search} href="/search">
         <SearchIcon />
-      </a>
+      </Link>
     </header>
   );
 };

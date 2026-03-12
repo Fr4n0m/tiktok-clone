@@ -11,7 +11,14 @@ main {
   border-radius: 3px;
   max-width: 375px;
   min-width: 375px;
+  overscroll-behavior-y: contain;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
+  width: 100%;
+}
+
+.route-fallback {
+  background: #000;
+  height: 100%;
   width: 100%;
 }

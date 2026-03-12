@@ -4,27 +4,20 @@ import HeartIcon from "../Icons/Heart";
 import CommentsIcon from "../Icons/Comments";
 import ShareIcon from "../Icons/Share";
 import BookmarkIcon from "../Icons/Bookmark";
+import { UI_TEXT } from "../../content/uiText";
 
 const VideoPlayerActions = (props) => {
   const [hearted, setHearted] = useState(false);
-  const [likes, setLikes] = useState(props.likes);
+  const [likes, setLikes] = useState(props.likes ?? 0);
 
   const handleLike = () => {
-    setHearted((prevHearted) => !prevHearted);
-    setLikes((prevLikes) => (hearted ? prevLikes - 1 : prevLikes + 1));
+    setHearted((wasHearted) => {
+      setLikes((prevLikes) => (wasHearted ? prevLikes - 1 : prevLikes + 1));
+      return !wasHearted;
+    });
   };
 
-  const handleComment = () => {
-    window.alert("comment");
-  };
-
-  const handleShare = () => {
-    window.alert("share");
-  };
-
-  const handleBookmark = () => {
-    window.alert("bookmark");
-  };
+  const notifyPendingFeature = () => window.alert(UI_TEXT.video.pendingFeature);
 
   return (
     <aside className={styles.actions}>
@@ -33,27 +26,28 @@ const VideoPlayerActions = (props) => {
         <img
           src="https://sf16-scmcdn-va.ibytedtos.com/goofy/tiktok/web/node/_next/static/images/test-2e6dd40439e72f09a8193e27cb3e0c51.svg"
           width="24"
+          alt={UI_TEXT.video.followUser}
         />
       </div>
 
-      <button className={styles.action} onClick={handleLike}>
+      <button className={styles.action} onClick={handleLike} type="button">
         <HeartIcon className={hearted ? styles.hearted : styles.notHearted} />
-        <span title="like">{likes}</span>
+        <span title={UI_TEXT.video.likes}>{likes}</span>
       </button>
 
-      <button className={styles.action} onClick={handleComment}>
+      <button className={styles.action} onClick={notifyPendingFeature} type="button">
         <CommentsIcon />
-        <span title="comments">{props.comments}</span>
+        <span title={UI_TEXT.video.comments}>{props.comments}</span>
       </button>
 
-      <button className={styles.action} onClick={handleBookmark}>
+      <button className={styles.action} onClick={notifyPendingFeature} type="button">
         <BookmarkIcon />
-        <span title="bookmarks">{props.bookmarks}</span>
+        <span title={UI_TEXT.video.bookmarks}>{props.bookmarks}</span>
       </button>
 
-      <button className={styles.action} onClick={handleShare}>
+      <button className={styles.action} onClick={notifyPendingFeature} type="button">
         <ShareIcon />
-        <span title="shares">{props.shares}</span>
+        <span title={UI_TEXT.video.shares}>{props.shares}</span>
       </button>
     </aside>
   );

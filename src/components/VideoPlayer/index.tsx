@@ -3,17 +3,19 @@ import styles from "./styles.module.css";
 import clsx from "clsx";
 import VideoPlayerActions from "./VideoPlayerActions";
 import VideoDescription from "../VideoDescription/index";
-import useIntersectionVideoPlayer from "../../hooks/useIntersectionVideoPlayer.js";
+import useIntersectionVideoPlayer from "../../hooks/useIntersectionVideoPlayer";
+import { UI_TEXT } from "../../content/uiText";
+import { VideoItem } from "../../types/video";
 
-const VideoPlayer = (props) => {
-  const video = useRef(null);
+type VideoPlayerProps = VideoItem;
+
+const VideoPlayer = ({ src, ...videoMeta }: VideoPlayerProps) => {
+  const video = useRef<HTMLVideoElement | null>(null);
   const { playing, handlePlay } = useIntersectionVideoPlayer({ video });
 
   const playerClassname = clsx(styles.player, {
     [styles.hidden]: playing,
   });
-
-  const { src } = props;
 
   return (
     <div className={styles.wrapper}>
@@ -22,12 +24,18 @@ const VideoPlayer = (props) => {
         controls={false}
         loop
         onClick={handlePlay}
+        preload="metadata"
         ref={video}
         src={src}
       />
-      <i className={playerClassname} onClick={handlePlay} />
-      <VideoPlayerActions {...props} />
-      <VideoDescription {...props} />
+      <button
+        aria-label={playing ? UI_TEXT.video.pause : UI_TEXT.video.play}
+        className={playerClassname}
+        onClick={handlePlay}
+        type="button"
+      />
+      <VideoPlayerActions {...videoMeta} />
+      <VideoDescription {...videoMeta} />
     </div>
   );
 };

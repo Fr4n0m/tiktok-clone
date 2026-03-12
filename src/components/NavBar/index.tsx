@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation } from "wouter";
+import { Link, useLocation } from "wouter";
 import styles from "./styles.module.css";
 import clsx from "clsx";
 
@@ -12,56 +12,56 @@ import UploadIcon from "../Icons/Upload";
 import HomeIcon from "../Icons/Home";
 import HomeFillIcon from "../Icons/HomeFill";
 import AvatarIcon from "../Icons/Avatar";
+import { UI_TEXT } from "../../content/uiText";
 
 const NavBar = () => {
   const [location] = useLocation();
 
   const isHome = location === "/";
   const isFriends = location === "/friends";
-  const isUpload = location === "/upload";
   const isInbox = location === "/inbox";
   const isProfile = location === "/profile";
 
   return (
     <footer className={styles.navbar}>
-      <a className={styles.iconContainer} href="/" title="Inicio">
+      <Link className={styles.iconContainer} href="/" title={UI_TEXT.nav.home}>
         {isHome ? <HomeFillIcon /> : <HomeIcon />}
-        <span className={clsx({ [styles.active]: isHome })}>Inicio</span>
-      </a>
+        <span className={clsx({ [styles.active]: isHome })}>{UI_TEXT.nav.home}</span>
+      </Link>
 
-      <a className={styles.iconContainer} href="/friends" title="Amigos">
+      <Link className={styles.iconContainer} href="/friends" title={UI_TEXT.nav.friends}>
         {isFriends ? <FriendsFillIcon /> : <FriendsIcon />}
 
-        <span className={clsx({ [styles.active]: isFriends })}>Amigos</span>
-      </a>
+        <span className={clsx({ [styles.active]: isFriends })}>{UI_TEXT.nav.friends}</span>
+      </Link>
 
-      <a
+      <Link
         className={clsx(styles.iconContainer, styles.uploadButton)}
         href="/upload"
-        title="Subir vídeo"
+        title={UI_TEXT.nav.upload}
       >
         <UploadIcon />
-      </a>
+      </Link>
 
-      <a
+      <Link
         className={styles.iconContainer}
         href="/inbox"
-        title="Bandeja de entrada"
+        title={UI_TEXT.nav.inbox}
       >
         {isInbox ? <InboxFillIcon /> : <InboxIcon />}
         <span className={clsx(styles.inboxTitle, { [styles.active]: isInbox })}>
-          Bandeja de entrada
+          {UI_TEXT.nav.inbox}
         </span>
-      </a>
+      </Link>
 
-      <a className={styles.iconContainer} href="/profile" title="Perfil">
+      <Link className={styles.iconContainer} href="/profile" title={UI_TEXT.nav.profile}>
         {isProfile ? (
           <AvatarIcon className={styles.profileAvatar} />
         ) : (
           <ProfileIcon />
         )}
-        <span className={clsx({ [styles.active]: isProfile })}>Perfil</span>
-      </a>
+        <span className={clsx({ [styles.active]: isProfile })}>{UI_TEXT.nav.profile}</span>
+      </Link>
     </footer>
   );
 };

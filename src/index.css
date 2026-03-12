@@ -1,13 +1,13 @@
 @font-face {
   font-family: 'Proxima Nova';
   font-weight: 400;
-  src: url('assets/TikTokFont-Regular.woff2') format('woff2');
+  src: url('../assets/TikTokFont-Regular.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Proxima Nova Semibold';
   font-weight: 600;
-  src: url('assets/TikTokFont-Semibold.woff2') format('woff2');
+  src: url('../assets/TikTokFont-Semibold.woff2') format('woff2');
 }
 
 body {

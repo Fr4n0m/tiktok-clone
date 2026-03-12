@@ -87,7 +87,7 @@ export const MOCK_INBOX_NOTIFICATIONS: InboxNotification[] = [
 ];
 
 export const MOCK_PROFILE = {
-  name: "Fran Moreno",
+  name: "Fran",
   username: "fr4n0m",
   avatar: "https://avatars.githubusercontent.com/u/138864214?v=4",
   bio: "Frontend engineer building product-focused web experiences.",

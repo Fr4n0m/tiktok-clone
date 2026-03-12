@@ -51,6 +51,12 @@ export const UI_TEXT = {
     repost: "Repost",
     cancel: "Cancel",
     linkCopied: "Video link copied",
+    commentsTitle: "Comments",
+    commentsPlaceholder: "Add a comment...",
+    postComment: "Post",
+    close: "Close",
+    follow: "Follow",
+    following: "Following",
   },
   friendsPage: {
     title: "Friends",

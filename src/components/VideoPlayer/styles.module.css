@@ -127,6 +127,59 @@
     width: 100%;
 }
 
+.commentList {
+    display: grid;
+    gap: 10px;
+    max-height: 220px;
+    overflow-y: auto;
+    padding-right: 2px;
+}
+
+.commentItem {
+    background: #ffffff0a;
+    border: 1px solid #ffffff12;
+    border-radius: 10px;
+    padding: 8px 10px;
+}
+
+.commentItem strong {
+    color: #fff;
+    font-size: 12px;
+}
+
+.commentItem p {
+    color: #d6d6d6;
+    font-size: 12px;
+    margin: 4px 0 0;
+}
+
+.commentComposer {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: 1fr auto;
+    margin-top: 10px;
+}
+
+.commentComposer input {
+    background: #ffffff12;
+    border: 1px solid #ffffff2b;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 13px;
+    padding: 10px 12px;
+}
+
+.commentComposer button {
+    background: #ff2c54;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px 14px;
+}
+
 @media (max-width: 768px) {
     .video {
         object-fit: cover;

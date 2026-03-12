@@ -6,12 +6,21 @@ import ShareIcon from "../Icons/Share";
 import BookmarkIcon from "../Icons/Bookmark";
 import { UI_TEXT } from "../../content/uiText";
 
+const MOCK_COMMENTS = [
+  { id: "1", author: "alexstream", text: "This edit is insane 🔥" },
+  { id: "2", author: "mia.motion", text: "Need part 2 of this video." },
+  { id: "3", author: "frankbeats", text: "The transition timing is perfect." },
+];
+
 const VideoPlayerActions = (props) => {
   const [hearted, setHearted] = useState(false);
   const [likes, setLikes] = useState(props.likes ?? 0);
-  const [isShareMenuOpen, setIsShareMenuOpen] = useState(false);
-  const [copiedMessage, setCopiedMessage] = useState("");
-  const canUseWebShare = typeof navigator !== "undefined" && "share" in navigator;
+  const [bookmarked, setBookmarked] = useState(false);
+  const [bookmarks, setBookmarks] = useState(props.bookmarks ?? 0);
+  const [comments] = useState(MOCK_COMMENTS);
+  const [commentCount, setCommentCount] = useState(props.comments ?? 0);
+  const [sheet, setSheet] = useState<null | "comments" | "share">(null);
+  const [feedbackMessage, setFeedbackMessage] = useState("");
 
   const handleLike = () => {
     setHearted((wasHearted) => {
@@ -20,67 +29,40 @@ const VideoPlayerActions = (props) => {
     });
   };
 
-  const notifyPendingFeature = () => window.alert(UI_TEXT.video.pendingFeature);
-
-  const closeShareMenu = () => {
-    setIsShareMenuOpen(false);
-    setCopiedMessage("");
-  };
-
-  const handleShare = async () => {
-    const pageUrl = window.location.href;
-
-    if (canUseWebShare) {
-      try {
-        await navigator.share({
-          title: `${props.username} on TikTok clone`,
-          text: props.description,
-          url: pageUrl,
-        });
-      } catch {
-        return;
-      }
-      return;
-    }
-
-    setIsShareMenuOpen(true);
-  };
-
-  const handleCopyLink = async () => {
-    try {
-      await navigator.clipboard.writeText(window.location.href);
-      setCopiedMessage(UI_TEXT.video.linkCopied);
-    } catch {
-      setCopiedMessage("");
-    }
+  const closeSheet = () => {
+    setSheet(null);
+    setFeedbackMessage("");
   };
 
   useEffect(() => {
-    if (!isShareMenuOpen) return;
+    if (!sheet) return;
 
     const handleEscape = (event) => {
       if (event.key === "Escape") {
-        closeShareMenu();
+        closeSheet();
       }
     };
 
     window.addEventListener("keydown", handleEscape);
     return () => window.removeEventListener("keydown", handleEscape);
-  }, [isShareMenuOpen]);
+  }, [sheet]);
 
-  const handleSystemShare = async () => {
-    if (!navigator.share) return;
+  const handleBookmark = () => {
+    setBookmarked((wasBookmarked) => {
+      setBookmarks((prevBookmarks) =>
+        wasBookmarked ? prevBookmarks - 1 : prevBookmarks + 1
+      );
+      return !wasBookmarked;
+    });
+  };
 
-    try {
-      await navigator.share({
-        title: `${props.username} on TikTok clone`,
-        text: props.description,
-        url: window.location.href,
-      });
-      closeShareMenu();
-    } catch {
-      return;
-    }
+  const handlePostComment = () => {
+    setCommentCount((prevCount) => prevCount + 1);
+    setFeedbackMessage(UI_TEXT.video.postComment);
+  };
+
+  const handleMockShare = (label) => {
+    setFeedbackMessage(`${label} ${UI_TEXT.video.pendingFeature}`);
   };
 
   return (
@@ -100,51 +82,77 @@ const VideoPlayerActions = (props) => {
           <span title={UI_TEXT.video.likes}>{likes}</span>
         </button>
 
-        <button className={styles.action} onClick={notifyPendingFeature} type="button">
+        <button className={styles.action} onClick={() => setSheet("comments")} type="button">
           <CommentsIcon />
-          <span title={UI_TEXT.video.comments}>{props.comments}</span>
+          <span title={UI_TEXT.video.comments}>{commentCount}</span>
         </button>
 
-        <button className={styles.action} onClick={notifyPendingFeature} type="button">
-          <BookmarkIcon />
-          <span title={UI_TEXT.video.bookmarks}>{props.bookmarks}</span>
+        <button className={styles.action} onClick={handleBookmark} type="button">
+          <BookmarkIcon className={bookmarked ? styles.hearted : styles.notHearted} />
+          <span title={UI_TEXT.video.bookmarks}>{bookmarks}</span>
         </button>
 
-        <button className={styles.action} onClick={handleShare} type="button">
+        <button className={styles.action} onClick={() => setSheet("share")} type="button">
           <ShareIcon />
           <span title={UI_TEXT.video.shares}>{props.shares}</span>
         </button>
       </aside>
 
-      {isShareMenuOpen ? (
-        <div className={styles.shareOverlay} onClick={closeShareMenu} role="presentation">
-          <section
-            className={styles.shareMenu}
-            onClick={(event) => event.stopPropagation()}
-            role="dialog"
-          >
-            <h3>{UI_TEXT.video.shareMenuTitle}</h3>
-            <div className={styles.shareButtons}>
-              <button onClick={handleCopyLink} type="button">
-                {UI_TEXT.video.copyLink}
-              </button>
-              <button onClick={notifyPendingFeature} type="button">
-                {UI_TEXT.video.sendToFriend}
-              </button>
-              <button onClick={notifyPendingFeature} type="button">
-                {UI_TEXT.video.repost}
-              </button>
-              {canUseWebShare ? (
-                <button onClick={handleSystemShare} type="button">
+      {sheet ? (
+        <div className={styles.shareOverlay} onClick={closeSheet} role="presentation">
+          {sheet === "share" ? (
+            <section
+              className={styles.shareMenu}
+              onClick={(event) => event.stopPropagation()}
+              role="dialog"
+            >
+              <h3>{UI_TEXT.video.shareMenuTitle}</h3>
+              <div className={styles.shareButtons}>
+                <button onClick={() => handleMockShare(UI_TEXT.video.copyLink)} type="button">
+                  {UI_TEXT.video.copyLink}
+                </button>
+                <button onClick={() => handleMockShare(UI_TEXT.video.sendToFriend)} type="button">
+                  {UI_TEXT.video.sendToFriend}
+                </button>
+                <button onClick={() => handleMockShare(UI_TEXT.video.repost)} type="button">
+                  {UI_TEXT.video.repost}
+                </button>
+                <button onClick={() => handleMockShare(UI_TEXT.video.systemShare)} type="button">
                   {UI_TEXT.video.systemShare}
                 </button>
-              ) : null}
-            </div>
-            {copiedMessage ? <p>{copiedMessage}</p> : null}
-            <button className={styles.cancelShare} onClick={closeShareMenu} type="button">
-              {UI_TEXT.video.cancel}
-            </button>
-          </section>
+              </div>
+              {feedbackMessage ? <p>{feedbackMessage}</p> : null}
+              <button className={styles.cancelShare} onClick={closeSheet} type="button">
+                {UI_TEXT.video.cancel}
+              </button>
+            </section>
+          ) : (
+            <section
+              className={styles.shareMenu}
+              onClick={(event) => event.stopPropagation()}
+              role="dialog"
+            >
+              <h3>{UI_TEXT.video.commentsTitle}</h3>
+              <div className={styles.commentList}>
+                {comments.map((comment) => (
+                  <article className={styles.commentItem} key={comment.id}>
+                    <strong>@{comment.author}</strong>
+                    <p>{comment.text}</p>
+                  </article>
+                ))}
+              </div>
+              <div className={styles.commentComposer}>
+                <input placeholder={UI_TEXT.video.commentsPlaceholder} readOnly />
+                <button onClick={handlePostComment} type="button">
+                  {UI_TEXT.video.postComment}
+                </button>
+              </div>
+              {feedbackMessage ? <p>{feedbackMessage}</p> : null}
+              <button className={styles.cancelShare} onClick={closeSheet} type="button">
+                {UI_TEXT.video.close}
+              </button>
+            </section>
+          )}
         </div>
       ) : null}
     </>

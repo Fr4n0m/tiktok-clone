@@ -8,8 +8,6 @@ import { UI_TEXT } from "../../content/uiText";
 import { VideoItem } from "../../types/video";
 
 type VideoPlayerProps = VideoItem;
-let hasSyncedVideoAspectRatio = false;
-const TIKTOK_RATIO = 9 / 16;
 
 const VideoPlayer = ({ src, ...videoMeta }: VideoPlayerProps) => {
   const video = useRef<HTMLVideoElement | null>(null);
@@ -19,30 +17,12 @@ const VideoPlayer = ({ src, ...videoMeta }: VideoPlayerProps) => {
     [styles.hidden]: playing,
   });
 
-  const handleLoadedMetadata = () => {
-    const videoElement = video.current;
-    if (!videoElement || hasSyncedVideoAspectRatio) return;
-
-    const { videoWidth, videoHeight } = videoElement;
-    if (!videoWidth || !videoHeight) return;
-
-    const sourceRatio = videoWidth / videoHeight;
-    const normalizedRatio = sourceRatio > 1 ? TIKTOK_RATIO : sourceRatio;
-
-    document.documentElement.style.setProperty(
-      "--video-aspect-ratio",
-      `${normalizedRatio}`
-    );
-    hasSyncedVideoAspectRatio = true;
-  };
-
   return (
     <div className={styles.wrapper}>
       <video
         className={styles.video}
         controls={false}
         loop
-        onLoadedMetadata={handleLoadedMetadata}
         onClick={handlePlay}
         preload="metadata"
         ref={video}

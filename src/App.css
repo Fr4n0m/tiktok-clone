@@ -2,6 +2,10 @@
   --video-aspect-ratio: 0.5625;
   --nav-height: 50px;
   --device-max-height: 860px;
+  --feed-height: min(
+    calc(100dvh - 32px - var(--nav-height)),
+    calc(var(--device-max-height) - var(--nav-height))
+  );
 }
 
 .App {
@@ -32,10 +36,7 @@
 
 main {
   flex: none;
-  height: min(
-    calc(100dvh - 32px - var(--nav-height)),
-    calc(var(--device-max-height) - var(--nav-height))
-  );
+  height: var(--feed-height);
   overscroll-behavior-y: contain;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
@@ -119,6 +120,10 @@ main::-webkit-scrollbar {
 }
 
 @media (max-width: 768px) {
+  :root {
+    --feed-height: calc(100dvh - var(--nav-height) - env(safe-area-inset-bottom));
+  }
+
   .App {
     display: block;
     padding: 0;
@@ -132,7 +137,7 @@ main::-webkit-scrollbar {
   }
 
   main {
-    height: calc(100dvh - var(--nav-height) - env(safe-area-inset-bottom));
+    height: var(--feed-height);
   }
 
   .appDisclaimer {

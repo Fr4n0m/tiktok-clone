@@ -1,5 +1,5 @@
 .item {
-    height: 100%;
-    min-height: 100%;
+    height: var(--feed-height);
+    min-height: var(--feed-height);
     scroll-snap-align: start;
 }

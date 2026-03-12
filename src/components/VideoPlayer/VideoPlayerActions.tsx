@@ -6,6 +6,7 @@ import ShareIcon from "../Icons/Share";
 import BookmarkIcon from "../Icons/Bookmark";
 import { UI_TEXT } from "../../content/uiText";
 import { useLocation } from "wouter";
+import { VideoItem } from "../../types/video";
 
 const MOCK_COMMENTS = [
   { id: "1", author: "alexstream", text: "This edit is insane 🔥" },
@@ -13,22 +14,47 @@ const MOCK_COMMENTS = [
   { id: "3", author: "frankbeats", text: "The transition timing is perfect." },
 ];
 
-const VideoPlayerActions = (props) => {
+type VideoPlayerActionsProps = Pick<
+  VideoItem,
+  "id" | "likes" | "bookmarks" | "comments" | "shares" | "username" | "avatar"
+>;
+
+type EngagementState = {
+  hearted: boolean;
+  likes: number;
+  bookmarked: boolean;
+  bookmarks: number;
+};
+
+const createInitialEngagementState = (props: VideoPlayerActionsProps): EngagementState => ({
+  hearted: false,
+  likes: props.likes ?? 0,
+  bookmarked: false,
+  bookmarks: props.bookmarks ?? 0,
+});
+
+const VideoPlayerActions = (props: VideoPlayerActionsProps) => {
   const [, setLocation] = useLocation();
-  const [hearted, setHearted] = useState(false);
+  const [engagement, setEngagement] = useState<EngagementState>(
+    createInitialEngagementState(props)
+  );
   const [following, setFollowing] = useState(false);
-  const [likes, setLikes] = useState(props.likes ?? 0);
-  const [bookmarked, setBookmarked] = useState(false);
-  const [bookmarks, setBookmarks] = useState(props.bookmarks ?? 0);
   const [comments] = useState(MOCK_COMMENTS);
   const [commentCount, setCommentCount] = useState(props.comments ?? 0);
   const [sheet, setSheet] = useState<null | "comments" | "share">(null);
   const [feedbackMessage, setFeedbackMessage] = useState("");
 
   const handleLike = () => {
-    setHearted((wasHearted) => {
-      setLikes((prevLikes) => (wasHearted ? prevLikes - 1 : prevLikes + 1));
-      return !wasHearted;
+    setEngagement((previousState) => {
+      const nextHearted = !previousState.hearted;
+      return {
+        ...previousState,
+        hearted: nextHearted,
+        likes: Math.max(
+          0,
+          previousState.likes + (nextHearted ? 1 : -1)
+        ),
+      };
     });
   };
 
@@ -51,13 +77,23 @@ const VideoPlayerActions = (props) => {
   }, [sheet]);
 
   const handleBookmark = () => {
-    setBookmarked((wasBookmarked) => {
-      setBookmarks((prevBookmarks) =>
-        wasBookmarked ? prevBookmarks - 1 : prevBookmarks + 1
-      );
-      return !wasBookmarked;
+    setEngagement((previousState) => {
+      const nextBookmarked = !previousState.bookmarked;
+      return {
+        ...previousState,
+        bookmarked: nextBookmarked,
+        bookmarks: Math.max(
+          0,
+          previousState.bookmarks + (nextBookmarked ? 1 : -1)
+        ),
+      };
     });
   };
+
+  useEffect(() => {
+    setEngagement(createInitialEngagementState(props));
+    setCommentCount(props.comments ?? 0);
+  }, [props.id, props.likes, props.bookmarks, props.comments]);
 
   const handlePostComment = () => {
     setCommentCount((prevCount) => prevCount + 1);
@@ -102,8 +138,8 @@ const VideoPlayerActions = (props) => {
         </button>
 
         <button className={styles.action} onClick={handleLike} type="button">
-          <HeartIcon className={hearted ? styles.hearted : styles.notHearted} />
-          <span title={UI_TEXT.video.likes}>{likes}</span>
+          <HeartIcon className={engagement.hearted ? styles.hearted : styles.notHearted} />
+          <span title={UI_TEXT.video.likes}>{engagement.likes}</span>
         </button>
 
         <button className={styles.action} onClick={() => setSheet("comments")} type="button">
@@ -113,9 +149,9 @@ const VideoPlayerActions = (props) => {
 
         <button className={styles.action} onClick={handleBookmark} type="button">
           <BookmarkIcon
-            className={bookmarked ? styles.bookmarked : styles.notHearted}
+            className={engagement.bookmarked ? styles.bookmarked : styles.notHearted}
           />
-          <span title={UI_TEXT.video.bookmarks}>{bookmarks}</span>
+          <span title={UI_TEXT.video.bookmarks}>{engagement.bookmarks}</span>
         </button>
 
         <button className={styles.action} onClick={() => setSheet("share")} type="button">

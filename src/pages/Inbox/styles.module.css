@@ -1,6 +1,8 @@
 .inbox {
     background: #101010;
     color: #fff;
+    display: flex;
+    flex-direction: column;
     min-height: 100%;
     padding: 16px 14px 76px;
 }
@@ -99,4 +101,11 @@
     display: inline-block;
     height: 8px;
     width: 8px;
+}
+
+.disclaimer {
+    color: #9f9f9f;
+    font-size: 11px;
+    margin: auto 0 0;
+    text-align: center;
 }

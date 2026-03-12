@@ -66,6 +66,8 @@ const Profile = () => {
           ))}
         </div>
       </section>
+
+      <p className={styles.disclaimer}>{UI_TEXT.mockDisclaimer}</p>
     </section>
   );
 };

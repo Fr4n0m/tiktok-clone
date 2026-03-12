@@ -77,4 +77,6 @@ export const UI_TEXT = {
     likesThisWeek: "Likes this week",
     contentGrid: "Recent videos",
   },
+  mockDisclaimer:
+    "Demo notice: all data shown on this screen is mock data for preview purposes only.",
 };

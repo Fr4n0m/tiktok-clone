@@ -42,6 +42,8 @@ const Friends = () => {
           </article>
         ))}
       </div>
+
+      <p className={styles.disclaimer}>{UI_TEXT.mockDisclaimer}</p>
     </section>
   );
 };

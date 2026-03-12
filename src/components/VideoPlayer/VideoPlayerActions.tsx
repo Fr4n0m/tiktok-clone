@@ -5,6 +5,7 @@ import CommentsIcon from "../Icons/Comments";
 import ShareIcon from "../Icons/Share";
 import BookmarkIcon from "../Icons/Bookmark";
 import { UI_TEXT } from "../../content/uiText";
+import { useLocation } from "wouter";
 
 const MOCK_COMMENTS = [
   { id: "1", author: "alexstream", text: "This edit is insane 🔥" },
@@ -13,7 +14,9 @@ const MOCK_COMMENTS = [
 ];
 
 const VideoPlayerActions = (props) => {
+  const [, setLocation] = useLocation();
   const [hearted, setHearted] = useState(false);
+  const [following, setFollowing] = useState(false);
   const [likes, setLikes] = useState(props.likes ?? 0);
   const [bookmarked, setBookmarked] = useState(false);
   const [bookmarks, setBookmarks] = useState(props.bookmarks ?? 0);
@@ -68,14 +71,35 @@ const VideoPlayerActions = (props) => {
   return (
     <>
       <aside className={styles.actions}>
-        <div className={styles.user}>
-          <img alt={props.username} src={props.avatar} />
-          <img
-            src="https://sf16-scmcdn-va.ibytedtos.com/goofy/tiktok/web/node/_next/static/images/test-2e6dd40439e72f09a8193e27cb3e0c51.svg"
-            width="24"
-            alt={UI_TEXT.video.followUser}
-          />
-        </div>
+        <button
+          className={styles.userButton}
+          onClick={() => setLocation("/profile")}
+          type="button"
+        >
+          <div className={styles.user}>
+            <img alt={props.username} src={props.avatar} />
+            <button
+              aria-label={following ? UI_TEXT.video.following : UI_TEXT.video.follow}
+              className={styles.followBadge}
+              onClick={(event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                setFollowing((value) => !value);
+              }}
+              type="button"
+            >
+              <span
+                className={
+                  following
+                    ? `${styles.followBadgeIcon} ${styles.checkIcon}`
+                    : `${styles.followBadgeIcon} ${styles.plusIcon}`
+                }
+              >
+                {following ? "✓" : "+"}
+              </span>
+            </button>
+          </div>
+        </button>
 
         <button className={styles.action} onClick={handleLike} type="button">
           <HeartIcon className={hearted ? styles.hearted : styles.notHearted} />
@@ -88,7 +112,9 @@ const VideoPlayerActions = (props) => {
         </button>
 
         <button className={styles.action} onClick={handleBookmark} type="button">
-          <BookmarkIcon className={bookmarked ? styles.hearted : styles.notHearted} />
+          <BookmarkIcon
+            className={bookmarked ? styles.bookmarked : styles.notHearted}
+          />
           <span title={UI_TEXT.video.bookmarks}>{bookmarks}</span>
         </button>
 
